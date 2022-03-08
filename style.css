@@ -34,6 +34,7 @@ div.box-image {
     width: 1200px;
     background-image: url('./ngoc.jpg');
     background-position: 50% 88%;
+    filter: brightness(120%);
 }
 div.box-content {
     padding: 100px;
@@ -148,10 +149,12 @@ div.box-image {
      width: 100%;
      height: 100%;
      mix-blend-mode: screen;
+     border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
  }
  @keyframes anime3 {
     to {
-        opacity: 1;
+        opacity: 0.6;
     }
     from {
         opacity: 0;
