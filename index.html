@@ -7,7 +7,7 @@
     <title>8-3 Celeration</title>
     <link href="style.css" rel="stylesheet" />
 </head>
-<body>
+<body onLoad="startAudio()">
     <video class="video-background" playsinline autoplay muted loop>
         <source src="effect_trim.mp4" type="video/mp4">
     </video>
@@ -25,16 +25,49 @@
             </div>
        </div>
     </div>
-    <audio autoplay id="adio">
+    <audio id="adio">
         <source src="./music.mp3" type="audio/mpeg" />
     </audio>
     <script type="text/javascript">
         var aray = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
         var div = document.getElementById("div-image");
         var im = document.getElementById("back");
-        var au = document.getElementById("adio");
-        au.play();
         var count = 0;
+        function startAudio() {
+            var promise = document.getElementById("adio").play();
+            if (promise !== undefined) {
+                promise.then(() => {
+                    //
+                }).catch(error => {
+                    var div = document.createElement("div");
+                    div.setAttribute("id","fake");
+                    var body = document.getElementsByTagName("body")[0];
+                    var button = document.createElement("button");
+                    button.textContent = "Let's started";
+                    button.style.fontSize = "25px";
+                    button.style.borderRadius = "30px";
+                    button.style.padding = "10px";
+                    button.style.boxShadow = "0px 5px 5px pink";
+                    button.style.backgroundColor = "wheal";
+                    div.appendChild(button);
+                    div.style.textAlign = "center";
+                    div.style.width = "100%";
+                    div.style.height = "100%";
+                    div.style.position = "absolute";
+                    div.style.display = "flex";
+                    div.style.alignItems = "center";
+                    div.style.justifyContent = "center";
+                    div.style.top = "0px";
+                    div.style.background = "black";
+                    body.appendChild(div);
+                    button.onclick = () => {
+                        var tmp = document.getElementById("fake");
+                        document.getElementById("adio").play();
+                        body.removeChild(tmp);
+                    }
+                });
+            }
+        }
         setInterval(() => {
             
             if (count == aray.length) count = 0;
