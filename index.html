@@ -11,33 +11,67 @@
     <video class="video-background" playsinline autoplay muted loop>
         <source src="effect_trim.mp4" type="video/mp4">
     </video>
-    <div class="box">
-       <div class="box-main">
-            <div class="box-content">
+    <div id="box">
+       <div id="box-main">
+            <div id="box-content">
                 <h2>Woman Day</h2>
                 <h3>8 tháng 3</h3>
                 <p>Đầu tiên là chúc mừng ngày quốc tế phụ nữ.</p>
                 <p>Chúc Ngọc mạnh khỏe, may mắn, xinh đẹp và luôn giữ được nụ cười đáng yêu này.</p>
                 <p>Đôi lời tâm sự: Lần gặp đầu, 2 ta có 1 vài tính cách giống nhau. Tuy chưa cảm nhận được sâu sắc, nhưng Vinh nghĩ thời gian sẽ trả lời tất cả, kiên trì và cho nhau cơ hội nhé.</p>
             </div>
-            <div class="box-image" id="div-image">
+            <div id="div-image">
                 <img src="./starr.jpg" id="back" />
             </div>
        </div>
     </div>
     <audio id="adio">
-        <source src="./music.mp3" type="audio/mpeg" />
+        <source src="./music_2.mp3" type="audio/mpeg" />
     </audio>
     <script type="text/javascript">
         var aray = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
         var div = document.getElementById("div-image");
+        document.getElementById("box").style.visibility  = "hidden";
+        document.getElementById("box-main").style.visibility  = "hidden";
+        document.getElementById("box-content").style.visibility  = "hidden";
+        div.style.visibility = "hidden";
         var im = document.getElementById("back");
+        div.removeChild(im);
         var count = 0;
+        var run = () => setInterval(() => {
+            
+            if (count == aray.length) count = 0;
+            div.style.backgroundImage = "url('"+aray[count]+"')";
+            if (count == 1) {
+                div.style.backgroundPosition = "35% 10%";
+            }
+            setTimeout(() => {
+                div.removeChild(im);
+            }, 300);
+            setTimeout(() => {
+                div.appendChild(im);
+            }, 300);
+            count++;
+        }, 5000);
+        var start = () => {
+            
+            document.getElementById("box").className = "box";
+            document.getElementById("box-main").className = "box-main";
+            document.getElementById("box-content").className = "box-content";
+            div.className = "box-image";
+            document.getElementById("box").style.visibility  = "visible";
+            document.getElementById("box-main").style.visibility  = "visible";
+            document.getElementById("box-content").style.visibility  = "visible";
+            div.style.visibility = "visible";
+            div.appendChild(im);
+        }
         function startAudio() {
             var promise = document.getElementById("adio").play();
             if (promise !== undefined) {
                 promise.then(() => {
                     //
+                    start();
+                    run();
                 }).catch(error => {
                     var div = document.createElement("div");
                     div.setAttribute("id","fake");
@@ -64,25 +98,12 @@
                         var tmp = document.getElementById("fake");
                         document.getElementById("adio").play();
                         body.removeChild(tmp);
+                        start();
+                        run();
                     }
                 });
             }
         }
-        setInterval(() => {
-            
-            if (count == aray.length) count = 0;
-            div.style.backgroundImage = "url('"+aray[count]+"')";
-            if (count == 1) {
-                div.style.backgroundPosition = "35% 10%";
-            }
-            setTimeout(() => {
-                div.removeChild(im);
-            }, 300);
-            setTimeout(() => {
-                div.appendChild(im);
-            }, 300);
-            count++;
-        }, 6000);
     </script>
 </body>
 </html>

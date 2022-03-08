@@ -8,6 +8,8 @@ body {
     background-image: url("./screen.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    width: 99vw;
+    height: 99vh;
 }
 .box {
     position: absolute;
