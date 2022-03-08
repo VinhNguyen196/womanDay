@@ -20,13 +20,34 @@
                 <p>Chúc Ngọc mạnh khỏe, may mắn, xinh đẹp và luôn giữ được nụ cười đáng yêu này.</p>
                 <p>Đôi lời tâm sự: Lần gặp đầu, 2 ta có 1 vài tính cách giống nhau. Tuy chưa cảm nhận được sâu sắc, nhưng Vinh nghĩ thời gian sẽ trả lời tất cả, kiên trì và cho nhau cơ hội nhé.</p>
             </div>
-            <div class="box-image">
-                <img src="./starr.jpg" />
+            <div class="box-image" id="div-image">
+                <img src="./starr.jpg" id="back" />
             </div>
        </div>
     </div>
-    <audio>
-        <source src="file_name" type="audio_file_type">
+    <audio autoplay="true" loop preload="auto" >
+        <source src="music.mp3" type="audio/mpeg">
     </audio>
+    <script type="text/javascript">
+        var aray = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+        var div = document.getElementById("div-image");
+        var im = document.getElementById("back");
+        var count = 0;
+        setInterval(() => {
+            
+            if (count == aray.length) count = 0;
+            div.style.backgroundImage = "url('"+aray[count]+"')";
+            if (count == 1) {
+                div.style.backgroundPosition = "35% 10%";
+            }
+            setTimeout(() => {
+                div.removeChild(im);
+            }, 300);
+            setTimeout(() => {
+                div.appendChild(im);
+            }, 300);
+            count++;
+        }, 5000);
+    </script>
 </body>
 </html>

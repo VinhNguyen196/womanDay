@@ -46,10 +46,11 @@ div.box-content {
 }
 .box-content h2,
 .box-content h3 {
+    color: red;
     position: relative;
     width: 350px;
     transform: scaleX(0);
-    animation: text 1.5s ease forwards;
+    animation: text 3s ease forwards;
     transform-origin: left;
 }
 .box-content h3 {
@@ -65,12 +66,12 @@ div.box-content {
     height: 100%;
     background: teal;
     transform: scaleX(0);
-    animation: text1 2s ease forwards;
+    animation: text1 3.5s ease forwards;
     transform-origin: right;
 }
 .box-content h2::before,
 .box-content h2 {
-    animation-delay: 0.5s;
+    animation-delay: 1s;
 }
 
 @keyframes text {
@@ -94,20 +95,20 @@ div.box-content {
     line-height: 1.5;
 }
 .box-content p:nth-child(3) {
-    animation: textP1 2s ease forwards;
-    animation-delay: 2.5s;
+    animation: textP1 3s ease forwards;
+    animation-delay: 3.5s;
     transform-origin: left;
     transform: scaleX(0);
 }
 .box-content p:nth-child(4) {
-    animation: textP1 3.5s ease forwards;
-    animation-delay: 4.5s;
+    animation: textP1 4.5s ease forwards;
+    animation-delay: 6.5s;
     transform-origin: left;
     transform: scaleX(0);
 }
 .box-content p:nth-child(5) {
-    animation: textP1 3.5s ease forwards;
-    animation-delay: 8s;
+    animation: textP1 5.5s ease forwards;
+    animation-delay: 11s;
     transform-origin: left;
     transform: scaleX(0);
 }
