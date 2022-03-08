@@ -21,7 +21,7 @@
                 <h3>8 tháng 3</h3>
                 <p>Đầu tiên là chúc mừng ngày quốc tế phụ nữ.</p>
                 <p>Chúc Ngọc mạnh khỏe, may mắn, xinh đẹp và luôn giữ được nụ cười đáng yêu này.</p>
-                <p>Đôi lời tâm sự: Lần gặp đầu, 2 ta có 1 vài tính cách giống nhau. Tuy chưa cảm nhận được sâu sắc, nhưng Vinh nghĩ thời gian sẽ trả lời tất cả, kiên trì và cho nhau cơ hội nhé.</p>
+                <p>Đôi lời tâm sự: Lần gặp đầu, 2 ta có 1 vài tính cách giống nhau. Tuy chưa cảm nhận được sâu sắc, nhưng Vinh nghĩ thời gian sẽ trả lời tất cả, kiên trì và cho nhau cơ hội nhé nàng .</p>
             </div>
             <div id="div-image">
                 <img src="./starr.jpg" id="back" />
@@ -74,7 +74,7 @@
                 promise.then(() => {
                     //
                     start();
-                    run();
+                    setTimeout(() => run(), 1000);
                 }).catch(error => {
                     var div = document.createElement("div");
                     div.setAttribute("id","fake");
@@ -102,7 +102,7 @@
                         document.getElementById("adio").play();
                         body.removeChild(tmp);
                         start();
-                        run();
+                        setTimeout(() => run(), 1000);
                     }
                 });
             }
