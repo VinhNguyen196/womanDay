@@ -34,6 +34,7 @@ div.box-image {
     border-bottom-right-radius: 30px;
     width: 1200px;
     background-image: url('./ngoc.jpg');
+    background-size: cover;
     background-position: 50% 88%;
     filter: brightness(120%);
 }
